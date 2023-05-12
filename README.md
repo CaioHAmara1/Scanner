@@ -1,9 +1,26 @@
 # Scanner
 
-Neste código, utilizamos a classe Scannerpara ler dados do usuário a partir da entrada padrão (teclado). O programa começa pedindo ao usuário para digitar a quantidade de números a serem lidos. Em seguida, criamos um array de inteiros com o tamanho especificado pelo usuário.
+import java.util.Scanner;
 
-Depois disso, o programa entra em um laço forque lê cada número digitado pelo usuário e armazena no array numeros. A variável somaé atualizada a cada iteração para que possamos calcular a média aritmética posteriormente.
+public class MediaAritmetica {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int quantidade;
+        double soma = 0;
 
-Finalmente, dividimos a soma pelo número de elementos para obter uma média aritmética e exibimos o resultado na tela usando uma instrução System.out.println().
+        System.out.print("Digite a quantidade de números a serem lidos: ");
+        quantidade = sc.nextInt();
 
-Espero que isso ajude a entender como um projeto simples em Java pode ser criado. Claro que há muitas outras possibilidades para projetos em Java, mas este é um bom começo para quem está aprendendo a linguagem.
+        int[] numeros = new int[quantidade];
+
+        for (int i = 0; i < quantidade; i++) {
+            System.out.print("Digite o " + (i+1) + "º número: ");
+            numeros[i] = sc.nextInt();
+            soma += numeros[i];
+        }
+
+        double media = soma / quantidade;
+
+        System.out.println("A média aritmética é: " + media);
+    }
+}
